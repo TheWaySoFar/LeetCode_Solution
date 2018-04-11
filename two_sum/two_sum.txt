@@ -1,0 +1,15 @@
+题目：
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+Example:
+
+Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+
+思路：
+题目意思很简单，从数组中找出两个不同的数，使得他们的和等于target。思路也不难，最简单的方法，我们可以双重循环，第一重循环枚举数组中的数，第二重循环验证target－x是不是存在，时间复杂度为O(n^2).
+当然我们不能满足于此，能不能更快呢？答案当然是可以的，第二重循环中我们可以使用map，做到 log(n)的查找和插入的复杂度，典型的拿空间换时间的例子。
