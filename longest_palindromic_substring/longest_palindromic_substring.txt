@@ -1,0 +1,23 @@
+题目描述：
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+Example 1:
+
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+
+Example 2:
+
+Input: "cbbd"
+Output: "bb"
+
+思路：
+题意非常简答，求最长回文字串。不动脑子，先来发暴力：枚举字串长度，然后枚举起点，然后验证是否为回文串，复杂度O(n^3)，显然效率很低。如何优化呢，对，没错。
+我们可以二分长度，时间复杂度降为O(n^2*log(n)).好吧，复杂度提升了，但是还是不尽人意，有没有更快的方法呢。当然有，可以考虑动态规划的方法，dp[i][j]表示字串（i，j）是否是回文串
+dp[i][j] = (dp[i+1][j-1] && s[i]]==s[j])，这样我们可以枚举长度，然后更新，复杂度O(n^2)。当然不用dp也可以达到这样的效果，枚举每个位置，然后向两边扩展，直达不是回文串，但要分偶数和奇数来计算两边。
+那有没有更快的方法呢，当然有，
+下面介绍一下manacher算法，求每个字符为中心的最长回文字串，
+请见：https://segmentfault.com/a/1190000008484167
+当然也可以用后最数组求最长回文字串，比较复杂，这里不做介绍。
+这里使用DP和扩展的方式实现。
