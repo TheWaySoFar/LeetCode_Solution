@@ -17,21 +17,12 @@ public:
     }
     void extend(int l, int r, string s,int & ans, int & ansl){
         int len = s.size();
-        while(l>=0&&r<len){
-            if(s[l] == s[r]){
-                l--,r++;
-            } else {
-                if(r-l-1>ans){
-                    ans = r-l-1;
-                    ansl = l+1;
-                }
-                return;
-            }
+        while(l>=0&&r<len&&s[l]==s[r]){
+            l--,r++;
         }
         if(ans < r-l-1){
             ans = r-l-1;
             ansl = l+1;
-
         }
     }
 };
