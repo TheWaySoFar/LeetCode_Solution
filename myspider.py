@@ -33,7 +33,7 @@ class MyHTMLParser(HTMLParser):
         if tag == 'h3' and self.flag == True and self.title == True:
             self.title = False
         elif tag == 'time' and self.flag and self.time:
-            self.time = Flase
+            self.time = False
         elif tag == 'span' and self.flag and self.location:
             self.location = False
         if tag == 'ul' and self.flag:
